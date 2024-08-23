@@ -19,9 +19,17 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Lcq-Tw-Fcc">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" id="W7G-b3-fnl">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="BYZ-38-t0r" id="fYs-KE-7Gm"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="c1g-St-iRg" detailTextLabel="i5k-iI-AA6" style="IBUITableViewCellStyleSubtitle" id="YXc-dO-L7D">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="94" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YXc-dO-L7D" id="hwv-0A-TK5">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -64,6 +72,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="W7G-b3-fnl" id="ynP-Iz-PHO"/>
                         <outlet property="tableView" destination="Lcq-Tw-Fcc" id="dWa-Wc-S9h"/>
                         <segue destination="rif-SE-g1Y" kind="show" identifier="cellSegue" id="MgR-ZV-sc1"/>
                     </connections>
@@ -114,6 +123,17 @@
                                     <constraint firstAttribute="height" constant="120" id="lk2-rj-iIo"/>
                                 </constraints>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eY-oi-bhp">
+                                <rect key="frame" x="10" y="479" width="393" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etN-uf-Zaq">
+                                <rect key="frame" x="10" y="510" width="373" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L8k-j6-8wP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -124,11 +144,18 @@
                             <constraint firstItem="cI6-Id-N3g" firstAttribute="leading" secondItem="L8k-j6-8wP" secondAttribute="leading" constant="10" id="PHk-Ze-gSf"/>
                             <constraint firstItem="gaY-j8-FsE" firstAttribute="leading" secondItem="L8k-j6-8wP" secondAttribute="leading" constant="10" id="RE5-SZ-ew6"/>
                             <constraint firstItem="L8k-j6-8wP" firstAttribute="trailing" secondItem="cI6-Id-N3g" secondAttribute="trailing" constant="10" id="RH1-7v-hFM"/>
+                            <constraint firstItem="L8k-j6-8wP" firstAttribute="trailing" secondItem="2eY-oi-bhp" secondAttribute="trailing" id="S5x-N7-fTT"/>
                             <constraint firstItem="7a8-dk-29y" firstAttribute="top" secondItem="gaY-j8-FsE" secondAttribute="bottom" constant="10" id="Sr6-Ky-GPb"/>
                             <constraint firstItem="7a8-dk-29y" firstAttribute="leading" secondItem="L8k-j6-8wP" secondAttribute="leading" constant="10" id="VJU-Eo-GLJ"/>
+                            <constraint firstItem="2eY-oi-bhp" firstAttribute="leading" secondItem="L8k-j6-8wP" secondAttribute="leading" constant="10" id="XME-wb-dI5"/>
+                            <constraint firstItem="etN-uf-Zaq" firstAttribute="top" secondItem="2eY-oi-bhp" secondAttribute="bottom" constant="10" id="YKG-Sc-t2c"/>
+                            <constraint firstItem="L8k-j6-8wP" firstAttribute="trailing" secondItem="etN-uf-Zaq" secondAttribute="trailing" constant="10" id="ah7-iL-ack"/>
+                            <constraint firstItem="2eY-oi-bhp" firstAttribute="top" secondItem="Ov7-e9-bAj" secondAttribute="bottom" constant="10" id="bdB-zw-O5Y"/>
                             <constraint firstItem="Ov7-e9-bAj" firstAttribute="leading" secondItem="L8k-j6-8wP" secondAttribute="leading" id="cNZ-03-RgF"/>
                             <constraint firstItem="Hw8-ep-wy6" firstAttribute="leading" secondItem="L8k-j6-8wP" secondAttribute="leading" constant="10" id="dLS-1f-rcB"/>
+                            <constraint firstItem="2eY-oi-bhp" firstAttribute="trailing" secondItem="L8k-j6-8wP" secondAttribute="trailing" constant="10" id="fVE-q0-COQ"/>
                             <constraint firstItem="cI6-Id-N3g" firstAttribute="top" secondItem="L8k-j6-8wP" secondAttribute="top" constant="10" id="fk4-Xi-B2Z"/>
+                            <constraint firstItem="etN-uf-Zaq" firstAttribute="leading" secondItem="L8k-j6-8wP" secondAttribute="leading" constant="10" id="imI-2Y-hWh"/>
                             <constraint firstItem="Ov7-e9-bAj" firstAttribute="trailing" secondItem="L8k-j6-8wP" secondAttribute="trailing" id="kDx-2K-le3"/>
                             <constraint firstItem="gaY-j8-FsE" firstAttribute="top" secondItem="Hw8-ep-wy6" secondAttribute="bottom" constant="10" id="kY4-fO-h5v"/>
                             <constraint firstItem="Hw8-ep-wy6" firstAttribute="top" secondItem="cI6-Id-N3g" secondAttribute="bottom" constant="10" id="kjT-6n-rL6"/>
@@ -137,6 +164,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="81p-XF-BWi"/>
                     <connections>
+                        <outlet property="categoryTextField" destination="etN-uf-Zaq" id="oWI-te-XLS"/>
                         <outlet property="contentsTextView" destination="7a8-dk-29y" id="ALQ-Rb-Jig"/>
                         <outlet property="datePicker" destination="Ov7-e9-bAj" id="OrJ-8p-BuS"/>
                         <outlet property="titleTextField" destination="Hw8-ep-wy6" id="zNi-hK-5ve"/>
